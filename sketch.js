@@ -1,37 +1,44 @@
 var fixedRect,movingRect;
-
+var gameObject1,gameObject2,gameObject3,gameObject4;
 
 function setup() {
-  createCanvas(800,400);
-  fixedRect = createSprite(200, 100, 50, 50);
+  createCanvas(1200,800);
+  fixedRect = createSprite(600, 100, 50, 50);
   fixedRect.shapeColor = "green";
-  movingRect = createSprite(200,400,100,80);
+  movingRect = createSprite(600,800,100,80);
   movingRect.shapeColor = "green";
+  gameObject1 = createSprite(100,200,50,50);
+  gameObject1.shapeColor = "green";  
+  gameObject2 = createSprite(200,200,50,50);
+  gameObject2.shapeColor = "green";
+  gameObject3 = createSprite(300,200,50,50);
+  gameObject3.shapeColor = "green";
+  gameObject4 = createSprite(400,200,50,50);
+  gameObject4.shapeColor = "green";
   fixedRect.velocityY = +5 ;
   movingRect.velocityY = -5;
 }
 function draw() {
-  background(255,255,255);
+  background("black");
   
-  if(movingRect.y -fixedRect.y< movingRect.height/2 + fixedRect.height/2 &&
-     fixedRect.y-movingRect.y< movingRect.height/2 + fixedRect.height/2 ){
-      fixedRect.velocityY = fixedRect.velocityY *(-1) ;
-      movingRect.velocityY = movingRect.velocityY *(-1);
-  }
- // movingRect.x = World.mouseX;
- // movingRect.y = World.mouseY;
-
-//  if(movingRect.x -fixedRect.x < movingRect.width/2+fixedRect.width/2  && 
-  //  fixedRect.x- movingRect.x < movingRect.width/2+fixedRect.width/2 &&
- //   fixedRect.y- movingRect.y < movingRect.height/2+fixedRect.height/2 &&
- //   movingRect.y-fixedRect.y< movingRect.height/2+fixedRect.height/2  ){
-  //  fixedRect.shapeColor = "red";
-  //  movingRect.shapeColor = "red";
-
+  //movingRect.x = World.mouseX;
+  //movingRect.y = World.mouseY;
+  
+  //if(isTouching(movingRect, gameObject1)) {
+    //gameObject1.shapeColor = "blue";
+    //movingRect.shapeColor = "blue";
  // }
- // else{
- //   movingRect.shapeColor = "green"
- //   fixedRect.shapeColor = "green";
-//  }
+  //else{
+   // movingRect.shapeColor = "green"
+   // gameObject1.shapeColor = "green"; 
+     
+ // }
+  
+  Bounceoff(movingRect,fixedRect);
+ 
   drawSprites();
+  
 }
+
+
+
